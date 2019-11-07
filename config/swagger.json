@@ -1,0 +1,184 @@
+{
+    "swagger": "2.0",
+    "title" : "Autho API Documentation",
+    "description" : "PentaValue Task",
+    "license": {
+        "name": "MIT",
+        "url": "https://opensource.org/licenses/MIT"
+      },
+      "version": "1.0.0",
+      "host": "localhost:4000",
+      "basePath": "/api/users",
+      "tags": [
+        {
+          "name": "Autho",
+          "description": "API for Autho Endpoints"
+        }
+      ],
+      "schemes": ["http"],
+      "consumes": ["application/json"],
+      "produces": ["application/json"],
+      "paths" :{
+        "/reg":{
+         "post":{
+           "tags": ["Autho"],
+           "summary": "API Endpoint for Register",
+           "description" : "Signup",
+           "parameters":[
+             {
+               "name": "name",
+               "description": "name params ",
+               "in": "body",
+               "required": "true",
+               "schema" : {
+                 "$ref" : "#definitions/User"
+               }
+             },
+             {
+              "name": "email",
+              "description": "email params ",
+              "in": "body",
+              "required": "true",
+              "schema" : {
+                "$ref" : "#definitions/User"
+              }
+            },
+            {
+              "name": "password",
+              "description": "password params ",
+              "in": "body",
+              "required": "true",
+              "schema" : {
+                "$ref" : "#definitions/User"
+              }
+
+            }
+           ],
+           "produces" : ["application/json"],
+           "responses":{
+             "200":{
+               "description" : "You Have been register",
+               "schema": {
+                "$ref" : "#definitions/User"
+               }
+             }
+           }
+         }
+        },
+        "/login":{
+          "post":{
+            "tags": ["Autho"],
+           "summary": "API Endpoint for Login",
+           "description" : "Sign IN",
+           "parameters":[
+             
+             {
+              "name": "email",
+              "description": "email params ",
+              "in": "body",
+              "required": "true",
+              "schema" : {
+                "$ref" : "#definitions/Login"
+              }
+            },
+            {
+              "name": "password",
+              "description": "password params ",
+              "in": "body",
+              "required": "true",
+              "schema" : {
+                "$ref" : "#definitions/Login"
+              }
+
+            }
+           ],
+           "produces" : ["application/json"],
+           "responses":{
+             "200":{
+               "description" : "You Have been Loged in",
+               "schema": {
+                "$ref" : "#definitions/User"
+               }
+             }
+           }
+            
+          }
+        },
+        "/profile":{
+          "put":{
+            "tags": ["Autho"],
+            "summary": "API Endpoint for Update Profile",
+            "description" : "Update Profile",
+            "parameters":[
+              {
+                "name": "name",
+                "description": "name params ",
+                "in": "body",
+                "required": "true",
+                "schema" : {
+                  "$ref" : "#definitions/User"
+                }
+              },
+              {
+               "name": "email",
+               "description": "email params ",
+               "in": "body",
+               "required": "true",
+               "schema" : {
+                 "$ref" : "#definitions/User"
+               }
+             },
+             {
+               "name": "password",
+               "description": "password params ",
+               "in": "body",
+               "required": "true",
+               "schema" : {
+                 "$ref" : "#definitions/User"
+               }
+ 
+             }
+            
+            ],
+            "produces" : ["application/json"],
+            "responses":{
+              "200":{
+                "description" : "You Have been Updated Ur Profile",
+                "schema": {
+                 "$ref" : "#definitions/User"
+                }
+              }
+            }
+          }
+        }
+      },
+      "definitions":{
+        "User":{
+          "required": ["name","email","password"],
+          "properties":{
+            "name": {
+              "type" : "string"
+            },
+            "email": {
+              "type" : "string"
+            },
+            "password": {
+              "type" : "string"
+            }
+          }
+        
+        },
+        "Login":{
+          "required": ["email","password"],
+          "properties":{
+            "email": {
+              "type" : "string"
+            },
+            "password": {
+              "type" : "string"
+            }
+          }
+        }
+      }
+      
+    }
